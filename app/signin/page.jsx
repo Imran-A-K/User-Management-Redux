@@ -36,13 +36,7 @@ function SignIn() {
             token: token,
           })
         );
-        localStorage.setItem(
-          "userToken",
-          JSON.stringify({
-            id: Math.floor(Math.random() * 9) + 1,
-            token: token,
-          })
-        );
+
         toast.success("Successfull!");
         router.push("/");
       } else if (result?.error) {

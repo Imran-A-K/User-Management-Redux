@@ -49,6 +49,7 @@ function Table({ tableData = {}, setPage }) {
           >
             <input
               type="checkbox"
+              defaultChecked
               className="custom-checkbox peer size-5 appearance-none rounded-md border border-slate-300 accent-purple-300 dark:accent-pink-600 checked:appearance-none checked:border-purple-600"
             />
             <span className="flex items-center gap-2">

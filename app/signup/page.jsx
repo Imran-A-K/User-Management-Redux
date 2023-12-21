@@ -35,17 +35,10 @@ function SignUp() {
             token: token,
           })
         );
-        localStorage.setItem(
-          "userToken",
-          JSON.stringify({
-            id: id,
-            token: token,
-          })
-        );
+
         toast.success("Successfull!");
         router.push("/");
       } else if (result?.error) {
-        localStorage.removeItem("userToken");
         toast.error(result.error.data.error);
       }
     } catch (error) {
@@ -114,24 +107,14 @@ function SignUp() {
                     />
                   )}
                 </div>
-                {/* {errors?.password && (
+                {errors?.password && (
                   <p
                     className="pl-1 pt-2 flex items-center gap-2 text-base text-red-500"
                     role="alert"
                   >
                     <BiError /> {errors.password.message}
                   </p>
-                )} */}
-                {errors?.password?.type === "required" ||
-                errors?.password?.type === "validate" ||
-                errors?.password?.type === "minLength" ? (
-                  <p
-                    className="pl-1 pt-2 flex items-center gap-2 text-base text-red-500"
-                    role="alert"
-                  >
-                    <BiError /> {errors?.password?.message}
-                  </p>
-                ) : null}
+                )}
               </label>
               <button className="mt-5 tracking-wide font-semibold bg-purple-600 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 active:scale-[.98] ease-in-out transform active:duration-100 transition-all hover:scale-[1.01] flex items-center justify-center focus:shadow-outline focus:outline-none">
                 <span className="">Sign Up</span>

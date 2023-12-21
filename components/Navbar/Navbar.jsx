@@ -34,11 +34,8 @@ const CustomLink = ({ href, title, className = "" }) => {
 
 function Navbar() {
   const pathName = usePathname();
-  const router = useRouter();
   const dispatch = useDispatch();
   const handleLogout = () => {
-    // localStorage.removeItem("userToken");
-    // router.push("/signin");
     dispatch(logOut());
   };
   const id = useSelector(selectCurrentUserId);
@@ -47,7 +44,7 @@ function Navbar() {
   if (!!id && !!token) {
     authDetails = { id: id, token: token };
   }
-  const { data, error, isLoading } = useGetUserByIdQuery(authDetails);
+  const { data = {}, error, isLoading } = useGetUserByIdQuery(authDetails);
   return (
     <header
       className={`${
@@ -89,7 +86,7 @@ function Navbar() {
           <HiOutlineBell className="h-5 w-5 text-white cursor-pointer" />
           <div className="relative group">
             <Image
-              src={isLoading ? dummyUser : data.data.avatar}
+              src={isLoading ? dummyUser : data?.data?.avatar || dummyUser}
               height={35}
               width={35}
               alt="current user image"
@@ -99,7 +96,7 @@ function Navbar() {
             {!isLoading ? (
               <div className="hidden group-hover:block rounded-md absolute right-[-1rem] min-w-[130px] bg-white drop-shadow-lg">
                 <p className="px-5 whitespace-nowrap py-3 border-b font-medium text-md rounded-t-md text-center hover:bg-[#F5F5F5]">
-                  Hi, {data?.data.first_name}
+                  Hi, {data?.data?.first_name}
                 </p>
                 <p
                   onClick={handleLogout}

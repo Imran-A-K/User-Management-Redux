@@ -14,7 +14,7 @@ const Pagination = ({ data, setPage }) => {
       <button
         onClick={handlePrevClick}
         disabled={page === 1}
-        className="px-4 py-2 mr-2 border-2 border-gray-200 shadow-sm text-gray-600 rounded-md hover:bg-purple-500 hover:text-white"
+        className="px-4 py-2 mr-2 border-2 border-gray-200 shadow-sm text-gray-600 rounded-md hover:bg-purple-500 hover:text-white hover:transition-colors hover:duration-500"
       >
         Previous
       </button>
@@ -24,7 +24,7 @@ const Pagination = ({ data, setPage }) => {
       <button
         onClick={handleNextClick}
         disabled={page === total_pages}
-        className="px-4 py-2 mr-2 border-2 border-gray-200 shadow-sm text-gray-600 rounded-md hover:bg-purple-500 hover:text-white"
+        className="px-4 py-2 mr-2 border-2 border-gray-200 shadow-sm text-gray-600 rounded-md hover:bg-purple-500 hover:text-white hover:transition-colors hover:duration-500"
       >
         Next
       </button>

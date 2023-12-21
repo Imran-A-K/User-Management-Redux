@@ -31,13 +31,10 @@ export const api = createApi({
     getUserById: builder.query({
       query: (authDetails = {}) => {
         const { id, token } = authDetails;
-        const userToken = JSON.parse(localStorage.getItem("userToken"));
         const headers = {
-          // Authorization: `Bearer ${userToken}`,
           Authorization: `Bearer ${token}`,
         };
         return {
-          // url: `/users/${userToken.id}`,
           url: `/users/${id}`,
           headers,
         };
