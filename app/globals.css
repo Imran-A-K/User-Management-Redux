@@ -16,7 +16,7 @@
   }
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,4 +24,23 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+input[type="checkbox"]:checked::before {
+  content: "\2713";
+  display: inline-block;
+  color: #9434eb;
+  font-size: 1em;
+  font-weight: 900;
+  line-height: 1em;
+  margin-right: 0px;
+  margin-left: 4px;
+}
+
+input[type="checkbox"].custom-checkbox:checked::before {
+  content: "\2014";
+  font-size: 1em;
+  margin-left: 2px;
+  vertical-align: middle;
+  margin-bottom: 3px;
 }
