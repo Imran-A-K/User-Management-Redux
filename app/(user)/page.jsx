@@ -1,3 +1,4 @@
+"use client";
 import TableWithData from "@/components/TableWithData/TableWithData";
 import { CiImport } from "react-icons/ci";
 import { HiPlus } from "react-icons/hi";

@@ -1,3 +1,4 @@
+"use client";
 import { HiArrowNarrowDown } from "react-icons/hi";
 import { HiOutlinePencil } from "react-icons/hi";
 import { HiOutlineTrash } from "react-icons/hi";

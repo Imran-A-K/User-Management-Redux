@@ -1,3 +1,4 @@
+"use client";
 const Pagination = ({ data, setPage }) => {
   const { total_pages = 1, page = 1 } = data;
 
