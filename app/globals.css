@@ -44,3 +44,17 @@ input[type="checkbox"].custom-checkbox:checked::before {
   vertical-align: middle;
   margin-bottom: 3px;
 }
+
+tbody.closed {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 1s, opacity 1s;
+}
+
+tbody.open {
+  max-height: auto;
+  overflow: visible;
+  opacity: 1;
+  transition: max-height 1s, opacity 1s;
+}
