@@ -39,8 +39,12 @@ function TableBodySingleRow() {
   );
 }
 
-function Table({ tableData = {}, setPage }) {
+function Table({ tableData = {}, setPage, newdataWithRandomValue = [] }) {
   const { data = [] } = tableData;
+  // const newdataWithRandomValue = data.map((obj) => ({
+  //   ...obj,
+  //   randomValue: Math.round(Math.random()),
+  // }));
   // const checkboxRef = useRef(null);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(true);
   return (
@@ -86,8 +90,8 @@ function Table({ tableData = {}, setPage }) {
               isCheckboxChecked ? "open" : "closed"
             }`}
           >
-            {data.map((eachUser) => {
-              const randomValue = Math.round(Math.random());
+            {newdataWithRandomValue.map((eachUser) => {
+              // const randomValue = Math.round(Math.random());
               return (
                 <tr key={eachUser.id}>
                   <td className="whitespace-nowrap flex items-center gap-2 py-4 pl-4 pr-3 text-sm sm:pl-6">
@@ -121,12 +125,12 @@ function Table({ tableData = {}, setPage }) {
                       <p
                         className={cn(
                           "rounded-full px-2 font-medium",
-                          randomValue === 1
+                          eachUser.randomValue === 1
                             ? "bg-green-100 text-green-600"
                             : "bg-gray-300 text-gray-700"
                         )}
                       >
-                        {randomValue === 1 ? "Customer" : "Churned"}
+                        {eachUser.randomValue === 1 ? "Customer" : "Churned"}
                       </p>
                       <span className="flex items-center gap-4 text-gray-500">
                         <HiOutlineTrash className="h-6 w-6" />

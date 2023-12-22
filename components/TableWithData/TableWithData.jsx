@@ -9,7 +9,17 @@ function TableWithData() {
   const { data: usersData = {}, error, isLoading } = useGetUserDataQuery(page);
 
   if (!isLoading) {
-    return <Table tableData={usersData} setPage={setPage}></Table>;
+    const newdataWithRandomValue = usersData.data.map((obj) => ({
+      ...obj,
+      randomValue: Math.round(Math.random()),
+    }));
+    return (
+      <Table
+        newdataWithRandomValue={newdataWithRandomValue}
+        tableData={usersData}
+        setPage={setPage}
+      ></Table>
+    );
   }
 }
 
